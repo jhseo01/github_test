@@ -38,6 +38,8 @@ class Handler(FileSystemEventHandler):
     def on_any_event(shelf,event):
         print("특정 event 발생")
 
+print("test ")
+
 if __name__ == "__main__":
     w = Watcher()
     w.run()
