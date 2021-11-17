@@ -1,0 +1,1 @@
+https://zadd.tistory.com/97 (MX Component 설치 하지 않고 해당 ActiveX 컨트롤만 설치하는 방법)
