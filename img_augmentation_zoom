@@ -1,0 +1,20 @@
+### 이미지 한장씩 Augmention 하기 (모든 이미지에 적용하기 위해 한장씩 불러옴)
+
+import Augmentor
+import os
+import glob
+import shutil
+
+img_lst = []
+dest_folder = r'C:\Python_Project\flask_test\Augmentaion_folder'
+#for img in glob.glob(r"C:\Python_Project\flask_test\Augmentation_src_folder\*.jpg"):
+#    img_lst.append(img)
+for img in glob.glob(r"C:\Python_Project\flask_test\Augmentation_src_folder\*.jpg"): # 파일명을 하나씩 불러오기
+#for img_file in img_lst:
+    #shutil.copy(img_file, dest_folder)
+    shutil.copy(img, dest_folder) # 불어온 파일을 dest 폴더에 복사
+    img = Augmentor.Pipeline(dest_folder) # Augmentor 객체 생성
+    ## zoom
+    img.zoom(probability=1.0, min_factor=1.05, max_factor=1.05) # Zoom Augmentation 
+    img.sample(1) # 1장 샘플링
+    [os.remove(f) for f in glob.glob(r'C:\Python_Project\flask_test\Augmentaion_folder/*.jpg')] # 불어왔던 파일 삭제
